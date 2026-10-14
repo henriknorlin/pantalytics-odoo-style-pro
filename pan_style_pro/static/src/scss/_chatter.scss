@@ -76,20 +76,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   padding: 0;
+  // Outline icon button (brand Product-UI): 1px border, no shadow, monochrome
   border: 1px solid var(--pan-border);
-  border-radius: var(--pan-radius-sm);
-  background: var(--pan-bg, #ffffff);
+  border-radius: var(--pan-radius-md);
+  background: var(--pan-bg);
   color: var(--pan-text-secondary);
-  font-size: 0.75rem;
+  font-size: 1rem;
   cursor: pointer;
   opacity: 0;
-  transition: opacity 0.15s ease, color 0.15s ease,
-              background-color 0.15s ease, border-color 0.15s ease;
+  transition: opacity 0.15s ease, color 0.15s ease, background-color 0.15s ease;
 
-  .pan-chatter-resize-handle:hover & {
+  .pan-chatter-resize-handle:hover &,
+  &:focus-visible {
     opacity: 1;
   }
 
@@ -99,8 +100,7 @@
   }
 
   &:hover {
-    color: var(--pan-accent);
-    border-color: var(--pan-accent);
+    color: var(--pan-text);
     background-color: var(--pan-bg-secondary);
   }
 }
