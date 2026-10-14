@@ -1,6 +1,6 @@
 {
     "name": "Style Pro — Enterprise",
-    "version": "19.0.1.1.3",
+    "version": "19.0.1.1.4",
     "summary": "Enterprise extensions for Pantalytics Style Pro (home menu, dark mode)",
     "description": """
         Adds Enterprise-specific styling: home menu search bar, dark mode tokens.
@@ -25,6 +25,7 @@
             ("remove", "pan_style_pro/static/src/js/patches/home_menu_community_patch.js"),
             ("remove", "pan_style_pro/static/src/scss/_home_menu_community.scss"),
             "pan_style_pro_enterprise/static/src/scss/_home_menu.scss",
+            "pan_style_pro_enterprise/static/src/scss/_studio.scss",
             "pan_style_pro_enterprise/static/src/js/patches/home_menu_patch.js",
             "pan_style_pro_enterprise/static/src/xml/home_menu.xml",
         ],
