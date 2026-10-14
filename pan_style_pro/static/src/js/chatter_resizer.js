@@ -1,6 +1,7 @@
 /** @odoo-module **/
 
 import { onMounted, onPatched } from "@odoo/owl";
+import { _t } from "@web/core/l10n/translation";
 import { patch } from "@web/core/utils/patch";
 import { FormRenderer } from "@web/views/form/form_renderer";
 
@@ -26,8 +27,9 @@ function installResizer() {
     const toggle = document.createElement("button");
     toggle.className = "pan-chatter-toggle";
     toggle.type = "button";
-    toggle.title = "Toggle chatter";
-    toggle.innerHTML = '<i class="fa fa-dedent"></i>';
+    toggle.title = _t("Toggle chatter");
+    toggle.setAttribute("aria-label", toggle.title);
+    toggle.innerHTML = '<i class="oi oi-panel-right"></i>';
     handle.appendChild(toggle);
 
     chatter.parentNode.insertBefore(handle, chatter);
