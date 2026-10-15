@@ -98,16 +98,14 @@ function installResizer() {
 function applyRatio(sheet, chatter, ratio) {
     sheet.style.flex = `${ratio} 0 0px`;
     chatter.style.flex = `${1 - ratio} 0 0px`;
-    chatter.style.overflow = "";
-    chatter.style.visibility = "";
+    chatter.style.display = "";
     localStorage.setItem(STORAGE_KEY, ratio.toString());
 }
 
 function collapseChatter(sheet, chatter, handle) {
     sheet.style.flex = "1 0 0px";
-    chatter.style.flex = "0 0 0px";
-    chatter.style.overflow = "hidden";
-    chatter.style.visibility = "hidden";
+    // display:none, not flex 0: Odoo gives the aside chatter a min-width
+    chatter.style.display = "none";
     handle.classList.add("pan-chatter-collapsed");
     localStorage.setItem(COLLAPSED_KEY, "true");
 }
