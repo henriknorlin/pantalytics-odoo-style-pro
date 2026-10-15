@@ -53,19 +53,22 @@
     }
   }
 
-  // ── Collapsed state ─────────────────────────────────────────────────────
+  // ── Collapsed state: narrow column on the right, like Odoo's chatter ──
 
   &.pan-chatter-collapsed {
+    width: 40px;
     cursor: pointer;
+    background-color: var(--pan-bg);
+    border-left: 1px solid var(--pan-border);
 
-    // Hide the pill indicator when collapsed
+    &::before,
     &::after {
       display: none;
     }
   }
 }
 
-// ─── Toggle button (on the resize handle, top) ──────────────────────────
+// ─── Toggle: icon only, top of the handle ───────────────────────────────
 
 .pan-chatter-toggle {
   position: absolute;
@@ -79,15 +82,14 @@
   width: 28px;
   height: 28px;
   padding: 0;
-  // Outline icon button (brand Product-UI): 1px border, no shadow, monochrome
-  border: 1px solid var(--pan-border);
+  border: 0;
   border-radius: var(--pan-radius-md);
-  background: var(--pan-bg);
+  background: transparent;
   color: var(--pan-text-secondary);
   font-size: 1rem;
   cursor: pointer;
   opacity: 0;
-  transition: opacity 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+  transition: opacity 0.15s ease, color 0.15s ease;
 
   .pan-chatter-resize-handle:hover &,
   &:focus-visible {
@@ -100,8 +102,7 @@
   }
 
   &:hover {
-    color: var(--pan-text);
-    background-color: var(--pan-bg-secondary);
+    color: var(--pan-accent);
   }
 }
 
