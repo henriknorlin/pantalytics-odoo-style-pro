@@ -1,6 +1,6 @@
 {
     "name": "Style Pro — Enterprise",
-    "version": "19.0.1.2.0",
+    "version": "19.0.1.3.0",
     "summary": "Enterprise extensions for Pantalytics Style Pro (home menu, dark mode, Knowledge)",
     "description": """
         Adds Enterprise-specific styling: home menu search bar, dark mode tokens,
@@ -24,6 +24,7 @@
         # bundle that does not exist on this database is never built.
         "website_knowledge.assets_public_knowledge": [
             "pan_style_pro/static/src/scss/_tokens.scss",
+            "pan_style_pro/static/src/scss/_fonts.scss",
             "pan_style_pro/static/src/scss/_typography.scss",
             "pan_style_pro_enterprise/static/src/scss/_knowledge.scss",
         ],

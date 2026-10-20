@@ -4,7 +4,7 @@
 
 `odoo-style-pro` — Style Pro by Pantalytics for Odoo 19 and 20 (Community + Enterprise).
 
-Gives Odoo a modern, consumer-grade look and feel (think Linear/Vercel) using the Pantalytics brand. Three Odoo modules: `pan_style_pro` (Community-compatible base), `pan_style_pro_enterprise` (auto-install bridge for Enterprise features) and `pan_style_pro_search` (smart search in every model, off by default; see docs/SMART_SEARCH.md).
+Gives Odoo a modern, consumer-grade look and feel (think Linear/Vercel) using the Pantalytics brand. Four Odoo modules: `pan_style_pro` (Community-compatible base), `pan_style_pro_enterprise` (auto-install bridge for Enterprise features), `pan_style_pro_knowledge` (auto-install bridge for the public Knowledge sidebar) and `pan_style_pro_search` (smart search in every model, off by default; see docs/SMART_SEARCH.md).
 
 ## Brand tokens (source of truth: `pantalytics-brand/src/pages/kleuren.astro`)
 
@@ -14,8 +14,9 @@ Gives Odoo a modern, consumer-grade look and feel (think Linear/Vercel) using th
 - **Dark bg:** `#001d21` / secondary `#002328`
 - **Text dark-on-light:** `#001d21` / secondary `rgba(0,29,33,0.6)`
 - **Text light-on-dark:** `#ffffff` / secondary `rgba(255,255,255,0.6)`
-- **Heading font:** Lexend 500
-- **Body font:** Instrument Sans 400–700
+- **Font:** Murecho, one typeface: 500 headings, labels and buttons, 400 body (brand.pantalytics.com/en/typography)
+- **No shadows:** elevation is a 1px border; `--pan-shadow-*` are `none`
+- **Text on accent:** `--pan-accent-foreground` (white light, `#001d21` dark)
 - **Prefix all tokens with:** `--pan-`
 
 ## Architecture
@@ -34,6 +35,7 @@ See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for full details.
 |---|---|---|---|
 | `pan_style_pro` | `web` | No | All Community-compatible styling, navbar search bar, app icons |
 | `pan_style_pro_enterprise` | `pan_style_pro`, `web_enterprise` | **Yes** | Home menu patch, dark mode tokens |
+| `pan_style_pro_knowledge` | `pan_style_pro_enterprise`, `website_knowledge` | **Yes** | Public Knowledge sidebar: a caret only on pages with children. One JSON route, one OWL patch, one template extension |
 | `pan_style_pro_search` | `pan_style_pro` | **Yes** | Smart search in every model: words in any order, typos (pg_trgm), best match first. Fields come from each model's search view. Off until switched on in Settings > Style Pro. See [docs/SMART_SEARCH.md](docs/SMART_SEARCH.md) |
 
 ## Conventions

@@ -2,9 +2,10 @@
 
 // ─── Workflow status bar ───────────────────────────────────────────────────────
 
+// No vertical padding: Odoo folds the stages into a dropdown as soon as this
+// row is taller than one stage button (StatusBarField.areItemsWrapping).
 .o_statusbar_status {
   gap: var(--pan-space-1) !important;
-  padding: var(--pan-space-1) 0 !important;
   flex-wrap: wrap !important;
   align-items: center !important;
 }
@@ -31,20 +32,6 @@
   }
 }
 
-// ─── Current / active stage ────────────────────────────────────────────────────
-
-.o_statusbar_status button.o_arrow_button.btn-primary {
-  background-color: var(--pan-accent) !important;
-  border-color: var(--pan-accent) !important;
-  color: #ffffff !important;
-  font-weight: 600 !important;
-
-  &::before,
-  &::after {
-    display: none !important;
-  }
-}
-
 // ─── Hover state (non-disabled buttons) ───────────────────────────────────────
 
 .o_statusbar_status button.o_arrow_button:not(:disabled):not(.disabled):hover {
@@ -53,21 +40,31 @@
   color: var(--pan-text) !important;
 }
 
-// Keep active stage hover consistent with accent
-.o_statusbar_status button.o_arrow_button.btn-primary:hover {
-  background-color: var(--pan-accent-hover) !important;
-  border-color: var(--pan-accent-hover) !important;
-  color: #ffffff !important;
-}
-
 // ─── Past / disabled stages ───────────────────────────────────────────────────
 
-.o_statusbar_status button.o_arrow_button.disabled,
-.o_statusbar_status button.o_arrow_button:disabled {
+.o_statusbar_status button.o_arrow_button.disabled:not(.o_arrow_button_current),
+.o_statusbar_status button.o_arrow_button:disabled:not(.o_arrow_button_current) {
   background-color: transparent !important;
   border-color: transparent !important;
   color: var(--pan-text-secondary) !important;
-  opacity: 0.6 !important;
+  opacity: 1 !important;
   cursor: default !important;
   pointer-events: none !important;
+}
+
+// ─── Current stage ────────────────────────────────────────────────────────────
+// Odoo 17+ marks it o_arrow_button_current, and disabled. A state, not an
+// action, so neutral (brand: accent is for the primary action and links).
+
+.o_statusbar_status button.o_arrow_button.o_arrow_button_current {
+  background-color: var(--pan-bg-secondary) !important;
+  border-color: var(--pan-border-strong) !important;
+  color: var(--pan-text) !important;
+  font-weight: 500 !important;
+  opacity: 1 !important;
+
+  &::before,
+  &::after {
+    display: none !important;
+  }
 }
